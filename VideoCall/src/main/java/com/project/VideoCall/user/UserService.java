@@ -15,7 +15,6 @@ public class UserService {
 
     public void register(User user){
         user.setStatus("online");
-        System.out.println(user);
         user_list.add(user);
     }
 
