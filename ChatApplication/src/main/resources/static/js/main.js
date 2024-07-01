@@ -23,25 +23,23 @@ function connect(event) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
 
-        var socket = new SockJS('/ws');
+        var socket = new SockJS('/stomp-endpoint');
         stompClient = Stomp.over(socket);
 
-        console.log("Building Connection")
-        stompClient.connect({},onConnected,onError)
+
+        stompClient.connect({},onConnected,onError);
     }
     event.preventDefault();
 }
 
 
 function onConnected() {
+    console.log("frame")
     // Subscribe to the Public Topic
     stompClient.subscribe('/topic/public', onMessageReceived);
 
     // Tell your username to the server
-    stompClient.send("/app/chat.addUser",
-        {},
-        JSON.stringify({sender: username, type: 'JOIN'})
-    )
+    stompClient.send("/app/chat.addUser", {}, JSON.stringify({sender: username, type: 'JOIN'}))
 
     connectingElement.classList.add('hidden');
 }
