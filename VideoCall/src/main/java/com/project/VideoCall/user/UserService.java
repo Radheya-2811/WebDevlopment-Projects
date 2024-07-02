@@ -1,6 +1,7 @@
 package com.project.VideoCall.user;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class UserService {
     }
 
     public User login(User user){
-        var userIndex= IntStream.range(0,user_list.size())
+        var userIndex=   IntStream.range(0,user_list.size())
                 .filter(i -> user_list.get(i).getEmail().equals(user.getEmail()))
                 .findAny()
                 .orElseThrow(
