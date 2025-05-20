@@ -1,15 +1,15 @@
 package com.harsh.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.harsh.backend.dto.RestaurantDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,5 +29,9 @@ public class User {
     @JsonIgnore
     @OneToMany
     private List<Order> orders=new ArrayList<>();
+
+    private  List<RestaurantDto> favorates=new ArrayList();
+
+
 
 }
