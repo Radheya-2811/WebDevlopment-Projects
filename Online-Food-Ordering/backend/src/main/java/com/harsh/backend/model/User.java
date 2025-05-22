@@ -26,12 +26,5 @@ public class User {
     private String password;
     private USER_ROLE  role;
 
-    @JsonIgnore
-    @OneToMany
-    private List<Order> orders=new ArrayList<>();
-
-    private  List<RestaurantDto> favorates=new ArrayList();
-
-
 
 }
