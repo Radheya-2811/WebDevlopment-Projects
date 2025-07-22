@@ -17,12 +17,11 @@ import java.sql.Timestamp;
 @RequestMapping("/categories")
 @RequiredArgsConstructor
 public class CategoryController {
-
     private final CategoryService categoryService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public CategoryResponse addCategory(@RequestBody CategoryRequest request) {
-        return  categoryService.add(request);
-    }
+    //public CategoryResponse addCategory(@RequestBody CategoryRequest request) {
+    //    return  categoryService.add(request);
+    //}
 }
