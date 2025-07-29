@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 
 @RestController
@@ -20,8 +21,13 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public CategoryResponse addCategory(@RequestBody CategoryRequest request) {
         return  categoryService.add(request);
+    }
+
+    @GetMapping
+    public List<CategoryResponse> getAllCategories() {
+        return  categoryService.read();
     }
 }
