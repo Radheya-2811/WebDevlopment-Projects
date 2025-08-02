@@ -49,4 +49,11 @@ public class CategoryServiceImpl implements CategoryService {
                 .map(categoryEntity -> convertToResponse(categoryEntity))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public  void delete(String categoryId) {
+        CategoryEntity exsistingCategory=categoryRepository.findByCategoryId(categoryId)
+                .orElseThrow(()-> new RuntimeException("Category not found:"+categoryId));
+        categoryRepository.delete(exsistingCategory);
+    }
 }
