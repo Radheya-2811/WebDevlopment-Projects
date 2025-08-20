@@ -1,6 +1,11 @@
+import Menubar from "./Components/Menubar/Menubar";
+import 
+
 const App=()=>{
   return(
-    <div>Hello World</div>
+    <div>
+      <Menubar/>
+    </div>
   );
 }
 
