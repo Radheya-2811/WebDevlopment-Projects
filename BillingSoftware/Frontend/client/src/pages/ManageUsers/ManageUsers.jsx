@@ -1,3 +1,5 @@
+import './ManageUsers.css';
+
 const ManageUsers=()=>{
     return(
         <div>ManageUsers</div>

@@ -1,3 +1,5 @@
+import './ManageItems.css';
+
 const ManageItems=()=>{
     return(
         <div>ManageItems</div>
