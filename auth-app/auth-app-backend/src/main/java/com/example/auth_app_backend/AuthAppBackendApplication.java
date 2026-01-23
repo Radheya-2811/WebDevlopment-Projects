@@ -1,13 +1,13 @@
-package com.auth.auth_app;
+package com.example.auth_app_backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthAppApplication {
+public class AuthAppBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AuthAppApplication.class, args);
+		SpringApplication.run(AuthAppBackendApplication.class, args);
 	}
 
 }
