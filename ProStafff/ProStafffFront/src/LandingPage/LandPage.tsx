@@ -25,25 +25,6 @@ const LandPage=()=>{
             <div className="w-[55%] flex items-center justify-center">
                 <div className="w-[30rem]">
                     <img src="/Boy.png" alt="image failed to load" />
-                    {/* <div className="absolute -left-10 w-fit top-[50%] border-bright-sun-400 border rounded-lg p-2 backdrop-blur-mud gap-3 flex flex-col">
-                        <div className="flex gap-2 items-center">
-                            <div className="w-12 h-12 p-1 bg-mine-shaft-700 rounded-lg">
-                                <img src="/Google.png" alt="!" />
-                            </div>
-                            <div className="text-sm text-mine-shaft-100">
-                                <div>
-                                    Software Engineer
-                                </div>
-                                <div className="text-mine-shaft-200 text-xs">
-                                    New York
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex gap-2 text-mine-shaft-200 text-xs justify-around">
-                            <span>1day ago</span>
-                            <span>120 Applicants</span>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>

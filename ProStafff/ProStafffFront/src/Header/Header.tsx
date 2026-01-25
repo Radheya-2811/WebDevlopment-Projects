@@ -13,7 +13,7 @@ const Header=()=>{
             </div>
             {NavLinks()}
             
-            <div className='flex gap-2 items-center bg-mine-shaft-900 rounded-full  border-white px-4 py-1 hover:bg-white hover:text-mine-shaft-950 cursor-pointer'>
+            <div className='flex gap-2 items-center bg-mine-shaft-900 rounded-full  border-white px-4 py-1 hover:shadow-[0_0_12px_black] my-15 transition duration-600 ease-in-out !shadow-bright-sun-300 cursor-pointer'>
                 <IconMessage2Share stroke={2} />
                 <a href="#">Contact Us</a>   
             </div>
