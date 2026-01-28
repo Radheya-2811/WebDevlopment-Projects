@@ -2,6 +2,7 @@ import Header from "../Header/Header";
 import Companies from "../LandingPage/Companies";
 import LandPage from "../LandingPage/LandPage";
 import WhyUs from "../LandingPage/WhyUs";
+import ContactUs from "./ContactUs";
 
 const HomePage=()=>{
     return(
@@ -10,6 +11,7 @@ const HomePage=()=>{
             <LandPage/>
             <Companies/>
             <WhyUs/>
+            <ContactUs/>
         </div>
     )
 }
