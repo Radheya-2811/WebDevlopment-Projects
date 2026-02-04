@@ -23,6 +23,35 @@ const ContactUs = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // ✅ SEND DATA TO BACKEND
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("http://localhost:8080/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      alert("✅ Message sent successfully!");
+      setForm({
+        firstName: "",
+        lastName: "",
+        email: "",
+        mobile: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error(err);
+      alert("❌ Error sending message");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10">
@@ -38,16 +67,21 @@ const ContactUs = () => {
             and we’ll respond within 24 hours.
           </p>
 
-          <form className="space-y-4">
+          {/* ✅ ADD onSubmit */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+
             <div className="grid grid-cols-2 gap-4">
               <input
                 name="firstName"
+                value={form.firstName}
                 onChange={handleChange}
                 placeholder="First Name"
                 className="border p-3 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500"
               />
+
               <input
                 name="lastName"
+                value={form.lastName}
                 onChange={handleChange}
                 placeholder="Last Name"
                 className="border p-3 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500"
@@ -57,15 +91,16 @@ const ContactUs = () => {
             <input
               name="email"
               type="email"
+              value={form.email}
               onChange={handleChange}
               placeholder="Email Address"
               className="border p-3 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500"
             />
 
-            {/* Mobile Number */}
             <input
               name="mobile"
               type="tel"
+              value={form.mobile}
               onChange={handleChange}
               placeholder="Mobile Number"
               className="border p-3 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500"
@@ -73,6 +108,7 @@ const ContactUs = () => {
 
             <textarea
               name="message"
+              value={form.message}
               onChange={handleChange}
               placeholder="Leave us a message"
               className="border p-3 rounded-lg w-full h-32 outline-none focus:ring-2 focus:ring-blue-500"
@@ -83,17 +119,19 @@ const ContactUs = () => {
               <span>I agree to the privacy policy</span>
             </div>
 
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition w-full">
+            <button
+              type="submit"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition w-full"
+            >
               Send Message
             </button>
+
           </form>
         </div>
 
-        {/* RIGHT SIDE SECTION */}
+        {/* RIGHT SIDE INFO */}
         <div className="space-y-6">
 
-
-          {/* EMAIL CARD */}
           <div className="bg-white p-6 rounded-xl shadow flex items-center gap-4">
             <span className="text-blue-600 text-2xl">📧</span>
             <div>
@@ -102,20 +140,16 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {/* PHONE CARD */}
           <div className="bg-white p-6 rounded-xl shadow flex items-center gap-4">
             <span className="text-blue-600 text-2xl">📞</span>
             <div>
               <p className="font-semibold text-lg">Phone</p>
-              <p className="text-gray-500">
-                <a href="tel:+919876543210" className="hover:underline">
-                  +91 98765 43210
-                </a>
-              </p>
+              <a href="tel:+919876543210" className="text-gray-500 hover:underline">
+                +91 98765 43210
+              </a>
             </div>
           </div>
 
-          {/* LINKEDIN CARD */}
           <div className="bg-white p-6 rounded-xl shadow flex items-center gap-4">
             <span className="text-blue-600 text-2xl">🔗</span>
             <div>
@@ -131,7 +165,6 @@ const ContactUs = () => {
           </div>
 
         </div>
-
       </div>
     </div>
   );
